@@ -1,0 +1,115 @@
+manage staff  
+        1. add staff id: add-staff-form
+        2. remove staff:  
+        3. modify staff: modify-staff-form
+
+
+manage student
+        1. modify student: modify-student-form
+        2. add student: add-student-form
+        3. 
+
+manage achievents
+        1.add: add-achievement-form
+
+
+general templates
+    1. remove : remove-id-form
+    2.
+
+
+
+
+staff portal ids:
+add : add-student-form
+modify : modify-student-form
+remove : remove-student-form
+
+
+
+### add student ###
+
+classes : add-class
+mentor id : add-mentor-id
+name : add-name
+phone no : add-phone
+gender : add-gender
+blood group : add-blood-group
+addstudent();
+
+### remove student ###
+
+id : remove-id
+removestudentdata();
+
+###### modify student ######
+
+
+search>>
+enter id : search-id
+
+searchstudent();
+
+
+for form>>>
+classes : modi-class
+mentor id : modi-mentor-id
+name : modi-name
+phone no : modi-phone
+gender : modi-gender
+blood group : modi-blood-group
+
+modistudent();
+
+
+
+####### admin dash #################
+
+#####staff#######
+
+add staff:
+name : add-staff-name
+pass : add-staff-password
+name : add-staff-class
+name : add-staff-email
+name : add-staff-quali
+name : add-staff-gender
+addstaff()
+
+
+remove staff:
+removedata()
+
+modify staff:
+search-staff-id
+searchstaff()
+
+modi-staff-name
+pass : modi-staff-password
+name : modi-staff-class
+name : modi-staff-email
+name : modi-staff-quali
+name : modi-staff-gender
+modistaff();
+
+
+########achievements ##############3
+
+##add
+id:"add-ac-title"
+id:"add-ac-desc"
+id:"add-ac-year"
+addac();
+
+removedata();
+
+###modi##
+id:"search-ac-id"
+searchac()
+
+id:"modi-ac-title"
+id:"modi-ac-desc"
+id:"modi-ac-year"
+
+modiac()
+

@@ -1,0 +1,14 @@
+ac0001|rank 1 in karnataka|bla bla bla bla|2018|
+ac0002|wwdc winner|gotcha it finally|2020|
+fd0001|jack|jack@gmail.com|you school is awesome|
+fd0002|vish|Funkiebrain@gmail.com|1234|
+mt001|mark|password|8th|mark@gmail.com|Bsc|Male|
+mt002|shshhs|anything|3rd|email@email.com|mtech|male|
+mt003|amit|1234|3rd|am@email.com|mtech|male|
+mt004|jaan|janu|10th|jass@gmail.com|mtech|female|
+mt005|twinkal|tiku|7th|tiku@email.com|be|female|
+mt006|tony|tonybro|9th|tony@gmail.com|phd|male|
+mt007|vishwanath|vish|10th|vish@gmail.com|phd(Data Science)|male|
+st001|8th|mt001|sachin|1234567890|Male|ab+|
+st002|7th|mt003|carry|94949499495|male|ab+|
+st003|9th|mt004|suresh|99494949494|male|ab+|

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="/eel.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body
+    style="
+      background: radial-gradient(
+        circle,
+        rgba(237, 145, 231, 1) 0%,
+        rgba(122, 114, 213, 1) 100%
+      );
+    "
+  >
+    <section
+      class="d-flex flex-column justify-content-center align-items-center"
+      style="height: 100vh"
+    >
+      <div
+        class="d-flex flex-column justify-content-center align-items-center"
+        style="
+          border-radius: 6px;
+          box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.226);
+          padding: 26px;
+        "
+      >
+        <h1>Login</h1>
+        <form class="d-flex flex-column align-items-center">
+          <input
+            id="uid"
+            class="form-control"
+            type="text"
+            placeholder="enter staff id"
+            style="
+              margin-top: 10px;
+              background-color: rgba(255, 255, 255, 0.452);
+            "
+          />
+          <input
+            id="upass"
+            class="form-control"
+            type="password"
+            placeholder="enter password"
+            style="
+              margin-top: 10px;
+              background-color: rgba(255, 255, 255, 0.452);
+            "
+          />
+          <button
+            onclick="verify();"
+            class="btn btn-primary"
+            type="button"
+            style="
+              margin-top: 8px;
+              width: 50%;
+              background-color: black;
+              border: none;
+            "
+          >
+            send
+          </button>
+          <a
+            href="index.html"
+            style="margin-top: 8px; text-decoration: none; color: black"
+            >back to main</a
+          >
+        </form>
+      </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      function verify() {
+        let id = document.getElementById("uid").value;
+        let pass = document.getElementById("upass").value;
+        //alert(id + pass);
+
+        eel.login(
+          id,
+          pass
+        )(function (mes) {
+          alert(mes);
+          //window.location.href = "admincontols.html";
+
+          if (mes == "nouser") {
+            alert("Invalid User Data Passed");
+          }
+
+          if (mes == "admin") {
+            window.location.href = "admindash.html";
+          }
+          if (mes == "mentor") {
+            window.location.href = "staffdah.html";
+          }
+
+          if (mes == "wrong password") {
+            alert("wrong password");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

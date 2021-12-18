@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>sample</title>
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css" />
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body style="padding: 40px">
+    <div
+      id="display-data"
+      class="d-none"
+      style="
+        font-weight: bold;
+        font-size: large;
+        width: 100%;
+        height: 400px;
+        padding: 20px;
+        border-width: 3.4px;
+        border-style: none;
+        border-left-style: none;
+        overflow: scroll;
+        box-shadow: 0px 0px 3px rgb(7, 7, 7, 0.5);
+      "
+    ></div>
+    <!-- <a
+      id="dis-btn"
+      onclick="display()"
+      class="btn btn-light font-monospace text-center float-end"
+      role="button"
+      style="margin-top: 30px; text-align: center; margin-right: 20px"
+      >Show Staff</a
+    > -->
+    <a
+      class="btn btn-light font-monospace text-center float-end"
+      role="button"
+      style="margin-top: 30px; text-align: center; margin-right: 20px"
+      href="index.html"
+      >Go To Main</a
+    >
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+  <script>
+    function display() {
+      document.getElementById("display-data").className = "d-block";
+      var myTableDiv = document.getElementById("display-data");
+      myTableDiv.innerHTML = "";
+      var table = document.createElement("TABLE");
+      table.border = "2";
+      table.cellspacing = "3";
+      table.style.width = "100%";
+      var tableBody = document.createElement("TBODY");
+      table.appendChild(tableBody);
+
+      eel.displayStaff()(function (mes) {
+        //alert(mes);
+        var temp = mes[0];
+        var count = mes[1];
+        let some = [];
+        for (let i = 0; i < count; i++) {
+          some.push(temp[i]);
+        }
+        //alert(some);
+        for (let i = 0; i < count; i++) {
+          let data = some[i].split("|");
+          data.pop();
+
+          var tr = document.createElement("TR");
+          tr.style.border = "thick solid #ffeefe";
+          tableBody.appendChild(tr);
+
+          for (let j = 0; j < data.length; j++) {
+            var showme = data[j];
+            var str = "*****";
+            if (j == 2) {
+              showme = str;
+            }
+            var td = document.createElement("TD");
+            td.width = "auto";
+            td.appendChild(document.createTextNode(showme));
+            td.style.border = "thick solid #ffeefe";
+            td.style.textAlign = "center";
+            tr.appendChild(td);
+          }
+        }
+        myTableDiv.appendChild(table);
+      });
+      //document.getElementById("dis-btn").innerHTML = "Hide Staff";
+    }
+    //onload(display());
+    display();
+  </script>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>sample</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css" />
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body
+    style="
+      background: radial-gradient(
+        circle,
+        rgba(141, 140, 214, 1) 0%,
+        rgba(221, 125, 125, 1) 100%
+      );
+    "
+  >
+    <section
+      class="d-flex flex-row"
+      style="height: 100vh; padding-bottom: 10px"
+    >
+      <section
+        class="d-flex flex-column flex-grow-0 flex-fill"
+        style="
+          width: 30vw;
+          height: 100vh;
+          padding: 1px;
+          border: 4px none var(--bs-pink);
+        "
+      >
+        <div
+          class="d-flex flex-column align-items-center"
+          style="
+            padding: 12px;
+            background: #f7f6f656;
+            border-radius: -5px;
+            box-shadow: 0px 0px 7px 0px;
+            border-style: none;
+            color: var(--bs-indigo);
+          "
+        >
+          <h1
+            style="
+              text-align: center;
+              font-weight: bold;
+              color: rgba(156, 75, 153, 0.82);
+              font-family: Roboto, sans-serif;
+            "
+          >
+            Staff
+          </h1>
+          <a
+            class="btn btn-primary"
+            role="button"
+            style="
+              width: 70%;
+              background: rgba(214, 218, 224, 0.479);
+              color: rgb(34, 32, 32);
+            "
+            href="index.html"
+            >Logout</a
+          >
+        </div>
+        <div style="margin-top: 33px; padding: 4px">
+          <h4
+            style="
+              background: #f8f4f4;
+              box-shadow: 0px 1px 3px 1px;
+              font-family: Roboto, sans-serif;
+              color: rgb(174, 68, 157);
+            "
+          >
+            Manage Students
+          </h4>
+          <div
+            class="d-flex flex-column align-items-end"
+            style="margin: 0px; margin-top: 15px"
+          >
+            <button
+              onclick="calladdstudent();"
+              class="btn btn-primary text-center"
+              type="button"
+              style="
+                width: 80%;
+                margin-top: 5px;
+                color: var(--bs-light);
+                background: rgba(169, 72, 159, 0.65);
+                font-family: Roboto, sans-serif;
+                box-shadow: 0px 0px 2px 4px;
+              "
+            >
+              Add Students</button
+            ><button
+              onclick="callremovestudent();"
+              class="btn btn-primary text-center"
+              type="button"
+              style="
+                width: 80%;
+                margin-top: 15px;
+                color: var(--bs-light);
+                background: rgba(169, 72, 159, 0.65);
+                font-family: Roboto, sans-serif;
+                box-shadow: 0px 0px 2px 4px;
+              "
+            >
+              Remove Students</button
+            ><button
+              onclick="callmodifystudent();"
+              class="btn btn-primary text-center"
+              type="button"
+              style="
+                width: 80%;
+                margin-top: 15px;
+                color: var(--bs-light);
+                background: rgba(169, 72, 159, 0.65);
+                font-family: Roboto, sans-serif;
+                box-shadow: 0px 0px 2px 4px;
+              "
+            >
+              Modify Students</button
+            ><button
+              onclick="calldisplaystudent();"
+              class="btn btn-primary text-center"
+              type="button"
+              style="
+                width: 80%;
+                margin-top: 15px;
+                color: var(--bs-light);
+                background: rgba(169, 72, 159, 0.65);
+                font-family: Roboto, sans-serif;
+                box-shadow: 0px 0px 2px 4px;
+              "
+            >
+              Display Students
+            </button>
+          </div>
+        </div>
+        <div style="margin-top: 33px; padding: 4px">
+          <h4
+            style="
+              background: #ecf2ed;
+              box-shadow: 0px 1px 3px 1px rgb(157, 99, 74);
+              font-family: Roboto, sans-serif;
+              color: rgb(174, 125, 68);
+              font-size: 19.704px;
+              border-style: none;
+              border-color: var(--bs-purple);
+            "
+          >
+            Display Staff
+          </h4>
+          <div
+            class="d-flex flex-column align-items-end"
+            style="margin: 0px; margin-top: 15px"
+          >
+            <button
+              onclick="calldisplaystaff();"
+              class="btn btn-primary text-center"
+              type="button"
+              style="
+                width: 80%;
+                margin-top: 5px;
+                color: var(--bs-light);
+                background: rgba(169, 130, 72, 0.55);
+                font-family: Roboto, sans-serif;
+                box-shadow: 0px 0px 2px 4px;
+                font-size: 14px;
+              "
+            >
+              Display Staff
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        class="d-flex flex-column justify-content-center"
+        style="
+          height: 100%;
+          width: 70vw;
+          padding: 10px;
+          border: 5px none var(--bs-pink);
+        "
+      >
+        <div
+          id="add-student-form"
+          class="d-none"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1
+            class="text-center"
+            style="background: #faebeb; color: rgb(171, 66, 167)"
+          >
+            Add Student
+          </h1>
+          <form class="d-flex flex-column">
+            <input
+              id="add-class"
+              class="form-control"
+              type="text"
+              placeholder="Enter Class (Standard)"
+              required=""
+              style="
+                margin-top: 11px;
+                font-size: 17px;
+                background: rgba(239, 231, 231, 0.94);
+                box-shadow: 0px 0px 1px 1px;
+                border-left: 9px solid rgb(194, 67, 189);
+              "
+            /><input
+              id="add-mentor-id"
+              class="form-control"
+              type="text"
+              placeholder="Enter Mentor ID"
+              required=""
+              style="
+                margin-top: 11px;
+                font-size: 17px;
+                background: rgba(239, 231, 231, 0.94);
+                box-shadow: 0px 0px 1px 1px;
+                border-left: 9px solid rgb(194, 67, 189);
+              "
+            /><input
+              id="add-name"
+              class="form-control"
+              type="text"
+              required=""
+              placeholder="Enter Name"
+              style="
+                margin-top: 11px;
+                font-size: 17px;
+                background: rgba(239, 231, 231, 0.94);
+                box-shadow: 0px 0px 1px 1px;
+                border-left: 9px solid rgb(194, 67, 189);
+              "
+            /><input
+              id="add-phone"
+              class="form-control"
+              type="number"
+              placeholder="Enter Phone Number"
+              required=""
+              max="10"
+              inputmode="email"
+              style="
+                margin-top: 11px;
+                font-size: 17px;
+                background: rgba(239, 231, 231, 0.94);
+                box-shadow: 0px 0px 1px 1px;
+                border-left: 9px solid rgb(194, 67, 189);
+              "
+            /><input
+              id="add-gender"
+              class="form-control"
+              type="text"
+              placeholder="Gender"
+              required=""
+              style="
+                margin-top: 11px;
+                font-size: 17px;
+                background: rgba(239, 231, 231, 0.94);
+                box-shadow: 0px 0px 1px 1px;
+                border-left: 9px solid rgb(194, 67, 189);
+              "
+            /><input
+              id="add-blood-group"
+              class="form-control"
+              type="text"
+              placeholder="Blood Group"
+              required=""
+              style="
+                margin-top: 11px;
+                font-size: 17px;
+                background: rgba(239, 231, 231, 0.94);
+                box-shadow: 0px 0px 1px 1px;
+                border-left: 9px solid rgb(194, 67, 189);
+              "
+            /><button
+              onclick="addstudent();"
+              class="
+                btn btn-primary
+                justify-content-center
+                align-items-center align-self-center
+              "
+              type="button"
+              style="
+                margin-top: 10px;
+                width: 50%;
+                background: rgba(225, 101, 205, 0.84);
+              "
+            >
+              Add
+            </button>
+          </form>
+        </div>
+        <div
+          id="modify-student-form"
+          class="d-none"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <div
+            style="
+              padding: 10px;
+              border-width: 3.4px;
+              border-style: none;
+              border-left-style: none;
+            "
+          >
+            <h1
+              class="text-center"
+              style="background: #faebeb; color: rgb(171, 66, 167)"
+            >
+              Modify Student
+            </h1>
+            <div
+              style="
+                padding: 10px;
+                border-width: 3.4px;
+                border-style: none;
+                border-left-style: none;
+              "
+            >
+              <form class="d-flex flex-column">
+                <input
+                  id="search-id"
+                  class="form-control"
+                  type="text"
+                  placeholder="Enter Id"
+                  required=""
+                  style="
+                    margin-top: 11px;
+                    font-size: 17px;
+                    background: rgba(239, 231, 231, 0.94);
+                    box-shadow: 0px 0px 1px 1px;
+                    border-left: 9px solid rgb(156, 203, 128);
+                  "
+                /><button
+                  onclick="searchstudent();"
+                  class="
+                    btn btn-primary
+                    justify-content-center
+                    align-items-center align-self-center
+                  "
+                  type="button"
+                  style="
+                    margin-top: 10px;
+                    width: 50%;
+                    background: rgba(141, 225, 101, 0.9);
+                  "
+                >
+                  Seacrch
+                </button>
+              </form>
+            </div>
+            <form class="d-flex flex-column">
+              <input
+                id="modi-class"
+                class="form-control"
+                type="text"
+                placeholder="Enter Class (Standard)"
+                required=""
+                style="
+                  margin-top: 11px;
+                  font-size: 17px;
+                  background: rgba(239, 231, 231, 0.94);
+                  box-shadow: 0px 0px 1px 1px;
+                  border-left: 9px solid rgb(194, 67, 189);
+                "
+              /><input
+                id="modi-mentor-id"
+                class="form-control"
+                type="text"
+                placeholder="Enter Mentor ID"
+                required=""
+                style="
+                  margin-top: 11px;
+                  font-size: 17px;
+                  background: rgba(239, 231, 231, 0.94);
+                  box-shadow: 0px 0px 1px 1px;
+                  border-left: 9px solid rgb(194, 67, 189);
+                "
+              /><input
+                id="modi-name"
+                class="form-control"
+                type="text"
+                required=""
+                placeholder="Enter Name"
+                style="
+                  margin-top: 11px;
+                  font-size: 17px;
+                  background: rgba(239, 231, 231, 0.94);
+                  box-shadow: 0px 0px 1px 1px;
+                  border-left: 9px solid rgb(194, 67, 189);
+                "
+              /><input
+                id="modi-phone"
+                class="form-control"
+                type="number"
+                placeholder="Enter Phone Number"
+                required=""
+                inputmode="email"
+                style="
+                  margin-top: 11px;
+                  font-size: 17px;
+                  background: rgba(239, 231, 231, 0.94);
+                  box-shadow: 0px 0px 1px 1px;
+                  border-left: 9px solid rgb(194, 67, 189);
+                "
+              /><input
+                id="modi-gender"
+                class="form-control"
+                type="text"
+                placeholder="Gender"
+                required=""
+                style="
+                  margin-top: 11px;
+                  font-size: 17px;
+                  background: rgba(239, 231, 231, 0.94);
+                  box-shadow: 0px 0px 1px 1px;
+                  border-left: 9px solid rgb(194, 67, 189);
+                "
+              /><input
+                id="modi-blood-group"
+                class="form-control"
+                type="text"
+                placeholder="Blood Group"
+                required=""
+                style="
+                  margin-top: 11px;
+                  font-size: 17px;
+                  background: rgba(239, 231, 231, 0.94);
+                  box-shadow: 0px 0px 1px 1px;
+                  border-left: 9px solid rgb(194, 67, 189);
+                "
+              /><button
+                onclick="modistudent();"
+                class="
+                  btn btn-primary
+                  justify-content-center
+                  align-items-center align-self-center
+                "
+                type="button"
+                style="
+                  margin-top: 10px;
+                  width: 50%;
+                  background: rgba(225, 101, 205, 0.84);
+                "
+              >
+                Modify
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div
+          id="remove-student-form"
+          class="d-none"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <div
+            style="
+              padding: 10px;
+              border-width: 3.4px;
+              border-style: none;
+              border-left-style: none;
+            "
+          >
+            <h1
+              class="text-center"
+              style="background: #faebeb; color: rgb(171, 66, 167)"
+            >
+              Remove Student
+            </h1>
+            <div
+              style="
+                padding: 10px;
+                border-width: 3.4px;
+                border-style: none;
+                border-left-style: none;
+              "
+            >
+              <form class="d-flex flex-column">
+                <input
+                  id="remove-id"
+                  class="form-control"
+                  type="text"
+                  placeholder="Enter Id"
+                  required=""
+                  style="
+                    margin-top: 11px;
+                    font-size: 17px;
+                    background: rgba(239, 231, 231, 0.94);
+                    box-shadow: 0px 0px 1px 1px;
+                    border-left: 9px solid rgb(156, 203, 128);
+                  "
+                /><button
+                  onclick="removestudentdata();"
+                  class="
+                    btn btn-primary
+                    justify-content-center
+                    align-items-center align-self-center
+                  "
+                  type="button"
+                  style="
+                    margin-top: 10px;
+                    width: 50%;
+                    background: rgba(141, 225, 101, 0.9);
+                  "
+                >
+                  Remove
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div
+          id="display-data"
+          class="d-none"
+          style="
+            font-weight: bold;
+            font-size: large;
+            width: 100%;
+            height: 400px;
+            padding: 20px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+            overflow: scroll;
+            box-shadow: 0px 0px 3px rgb(7, 7, 7, 0.5);
+          "
+        ></div>
+      </section>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      function calladdstudent() {
+        console.log("add student");
+        document.getElementById("add-student-form").className = "d-block";
+        document.getElementById("remove-student-form").className = "d-none";
+        document.getElementById("modify-student-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+      function callremovestudent() {
+        document.getElementById("add-student-form").className = "d-none";
+        document.getElementById("remove-student-form").className = "d-block";
+        document.getElementById("modify-student-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+        console.log("remove student");
+      }
+      function callmodifystudent() {
+        document.getElementById("add-student-form").className = "d-none";
+        document.getElementById("remove-student-form").className = "d-none";
+        document.getElementById("modify-student-form").className = "d-block";
+        document.getElementById("display-data").className = "d-none";
+        console.log("modify student");
+      }
+      function calldisplaystudent() {
+        document.getElementById("add-student-form").className = "d-none";
+        document.getElementById("remove-student-form").className = "d-none";
+        document.getElementById("modify-student-form").className = "d-none";
+        document.getElementById("display-data").className = "d-block";
+        console.log("display student");
+
+        var myTableDiv = document.getElementById("display-data");
+        myTableDiv.innerHTML = "";
+        var table = document.createElement("TABLE");
+        table.border = "2";
+        table.cellspacing = "3";
+        table.style.width = "100%";
+        var tableBody = document.createElement("TBODY");
+        table.appendChild(tableBody);
+
+        eel.displayStudent()(function (mes) {
+          //alert(mes);
+          var temp = mes[0];
+          var count = mes[1];
+          let some = [];
+          for (let i = 0; i < count; i++) {
+            some.push(temp[i]);
+          }
+          //alert(some);
+          for (let i = 0; i < count; i++) {
+            let data = some[i].split("|");
+            data.pop();
+
+            var tr = document.createElement("TR");
+            tr.style.border = "thick solid #ffeefe";
+            tableBody.appendChild(tr);
+
+            for (let j = 0; j < data.length; j++) {
+              var td = document.createElement("TD");
+              td.width = "auto";
+              td.appendChild(document.createTextNode(`${data[j]}`));
+              td.style.border = "thick solid #ffeefe";
+              td.style.textAlign = "center";
+              tr.appendChild(td);
+            }
+          }
+          myTableDiv.appendChild(table);
+        });
+      }
+      function calldisplaystaff() {
+        document.getElementById("add-student-form").className = "d-none";
+        document.getElementById("remove-student-form").className = "d-none";
+        document.getElementById("modify-student-form").className = "d-none";
+        document.getElementById("display-data").className = "d-block";
+        console.log("display staff");
+
+        var myTableDiv = document.getElementById("display-data");
+        myTableDiv.innerHTML = "";
+        var table = document.createElement("TABLE");
+        table.border = "2";
+        table.cellspacing = "3";
+        table.style.width = "100%";
+        var tableBody = document.createElement("TBODY");
+        table.appendChild(tableBody);
+
+        eel.displayStaff()(function (mes) {
+          //alert(mes);
+          var temp = mes[0];
+          var count = mes[1];
+          let some = [];
+          for (let i = 0; i < count; i++) {
+            some.push(temp[i]);
+          }
+          //alert(some);
+          for (let i = 0; i < count; i++) {
+            let data = some[i].split("|");
+            data.pop();
+
+            var tr = document.createElement("TR");
+            tr.style.border = "thick solid #ffeefe";
+            tableBody.appendChild(tr);
+
+            for (let j = 0; j < data.length; j++) {
+              var showme = data[j]
+              var str = "*****"
+              if(j == 2){
+                showme = str
+              }
+              var td = document.createElement("TD");
+              td.width = "auto";
+              td.appendChild(document.createTextNode(showme));
+              td.style.border = "thick solid #ffeefe";
+              td.style.textAlign = "center";
+              tr.appendChild(td);
+            }
+          }
+          myTableDiv.appendChild(table);
+        });
+
+      }
+      function addstudent() {
+        const classes = document.getElementById("add-class").value;
+        const mentorid = document.getElementById("add-mentor-id").value;
+        const name = document.getElementById("add-name").value;
+        const phone = document.getElementById("add-phone").value;
+        const gender = document.getElementById("add-gender").value;
+        const bloodgroup = document.getElementById("add-blood-group").value;
+
+        //alert(classes + mentorid + name + phone + gender + bloodgroup);
+        eel.addStudent(
+          classes,
+          mentorid,
+          name,
+          phone,
+          gender,
+          bloodgroup
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+      function removestudentdata() {
+        const id = document.getElementById("remove-id").value;
+
+        eel.removeId(id)(function (mes) {
+          alert(mes);
+        });
+      }
+      function searchstudent() {
+        const id = document.getElementById("search-id").value;
+
+        eel.searchData(id)(function (mes) {
+          alert(mes);
+          var id = mes;
+          id = String(id);
+          data = id.split(",");
+
+          document.getElementById("modi-class").value = data[1];
+          document.getElementById("modi-mentor-id").value = data[2];
+          document.getElementById("modi-name").value = data[3];
+          document.getElementById("modi-phone").value = data[4];
+          document.getElementById("modi-gender").value = data[5];
+          document.getElementById("modi-blood-group").value = data[6];
+        });
+      }
+      function modistudent() {
+        const modiclass = document.getElementById("modi-class").value;
+        const modimentor = document.getElementById("modi-mentor-id").value;
+        const modiname = document.getElementById("modi-name").value;
+        const modiphone = document.getElementById("modi-phone").value;
+        const modigender = document.getElementById("modi-gender").value;
+        const modiblood = document.getElementById("modi-blood-group").value;
+        const modid = document.getElementById("search-id").value;
+
+        eel.modifyStudent(
+          modid,
+          modiclass,
+          modimentor,
+          modiname,
+          modiphone,
+          modigender,
+          modiblood
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+    </script>
+  </body>
+</html>
